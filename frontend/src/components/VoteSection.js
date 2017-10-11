@@ -8,7 +8,7 @@ export default function VoteSection ({id,onVote,onDelete,onEdit }) {
   return (
     <div className="row thumb_icon_row">
       <div className="col-md-1">
-        <FaThumbsOUp className="action_section" size={25} onClick={(e) => onVote({id,'option':'upVote'})}  />
+        <FaThumbsOUp className="action_section" size={25} onClick={(e) => onVote({id,'option':'upVote'})} />
       </div>
       <div className="col-md-1">
         <FaThumbsODown className="action_section" size={25} onClick={(e) => onVote({id,'option':'downVote'})}  />

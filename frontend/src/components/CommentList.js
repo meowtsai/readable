@@ -172,6 +172,7 @@ class CommentList extends Component {
                   <div>{item.body} </div>
 
                 </div>
+                <hr />
 
                 <VoteSection id={item.id}
                   onVote={(info)=>{

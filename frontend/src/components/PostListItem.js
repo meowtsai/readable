@@ -80,15 +80,12 @@ class PostListItem extends Component {
 						<small><i>{timeConverter(item.timestamp)}</i></small>
 					</td>
           <td className="text-center hidden-xs hidden-sm">
-
           {post_comments_count &&
             <div>{post_comments_count.count}</div>
 
           }
           </td>
           <td className="text-center hidden-xs hidden-sm">
-
-
             <VoteSection id={item.id}
               onVote={(info)=>{
                 this.votePost(info)
@@ -101,7 +98,6 @@ class PostListItem extends Component {
               }}
 
             />
-
 					</td>
 				</tr>
           }
