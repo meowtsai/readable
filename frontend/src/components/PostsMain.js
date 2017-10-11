@@ -66,7 +66,7 @@ class PostsMain extends Component {
          </div>
         </nav>
         {PostsDisplayed &&
-          <PostList list={PostsDisplayed} />
+          <PostList list={PostsDisplayed}  />
         }
         </div>
 

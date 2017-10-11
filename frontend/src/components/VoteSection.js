@@ -7,18 +7,17 @@ import MdEdit from 'react-icons/lib/md/edit'
 export default function VoteSection ({id,onVote,onDelete,onEdit }) {
   return (
     <div className="row thumb_icon_row">
-      <hr />
       <div className="col-md-1">
-        <FaThumbsOUp size={25} onClick={(e) => onVote({id,'option':'upVote'})}  />
+        <FaThumbsOUp className="action_section" size={25} onClick={(e) => onVote({id,'option':'upVote'})}  />
       </div>
       <div className="col-md-1">
-        <FaThumbsODown  size={25} onClick={(e) => onVote({id,'option':'downVote'})}  />
+        <FaThumbsODown className="action_section" size={25} onClick={(e) => onVote({id,'option':'downVote'})}  />
       </div>
       <div className="col-md-1">
-        <MdEdit  size={25} onClick={(e) => onEdit(id)} />
+        <MdEdit className="action_section" size={25} onClick={(e) => onEdit(id)} />
       </div>
       <div className="col-md-1">
-        <MdDelete  size={25} onClick={(e) => onDelete(id)}  />
+        <MdDelete className="action_section" size={25} onClick={(e) => onDelete(id)}  />
       </div>
 
     </div>

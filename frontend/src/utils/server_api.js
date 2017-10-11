@@ -91,8 +91,9 @@ export const deleteComment = (comment_id) =>
 
 export const deletePost = (post_id) =>
   fetch(`${api}/posts/${post_id}`, {
-    method: 'DELETE',
-    headers,}).then(res => res.json())
+    method: 'DELETE',headers,})
+    .then(res => res.json())
+    //.then(res => console.log(`${api}/posts/${post_id}`,res.json()))
 
 export const editComment3 = (comment_body) =>
   fetch(`${api}/comments/${comment_body.id}`, {

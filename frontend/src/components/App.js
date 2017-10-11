@@ -28,14 +28,16 @@ class App extends Component {
 
     return (
       <div className="container">
-      <Route exact path="/" render={() => (
+      <Route exact path="/" render={(props) => (
           <PostsMain
+            {...props}
             categories={categories}
           />
       )}/>
 
-      <Route exact path="/:category" render={() => (
+      <Route exact path="/:category" render={(props) => (
           <PostsMain
+            {...props} 
             categories={categories}
           />
       )}/>

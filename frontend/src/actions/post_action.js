@@ -85,7 +85,11 @@ export const deletePostOK = deletedPost => ({
 export const deletePost = (postId) => dispatch => (
   ForumAPIUtil
       .deletePost(postId)
-      .then(deletedPost => dispatch(deletePostOK(deletedPost)))
+      //.then(deletedPost => dispatch(deletePostOK(deletedPost)))
+      .then(deletedPost => {
+        //console.log("deletedPost",deletedPost)
+        dispatch(deletePostOK(deletedPost))}
+      )
 );
 
 
@@ -99,5 +103,8 @@ export const editPostOK = edittedPost => ({
 export const editPost = (submittedValue) => dispatch => (
   ForumAPIUtil
       .editPost(submittedValue)
-      .then(edittedPost => dispatch(editPostOK(edittedPost)))
+      .then(edittedPost => {
+        //console.log("editPost",edittedPost)
+        dispatch(editPostOK(edittedPost))
+      })
 );

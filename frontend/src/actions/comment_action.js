@@ -8,15 +8,16 @@ export const EDIT_COMMENT_OK = "EDIT_COMMENT_OK"
 
 
 
-export const receiveComments = comments => ({
+export const receiveComments = (comments,PostId) => ({
   type: RECEIVE_COMMENTS,
-  comments
+  comments,
+  post_comments_count:{ParentPostId:PostId,count:(comments?comments.length:0)},
 });
 
 export const fetchCommentsByPostId = (PostId) => dispatch => (
   ForumAPIUtil
       .fetchCommentListByPostId(PostId)
-      .then(comments => dispatch(receiveComments(comments)))
+      .then(comments => dispatch(receiveComments(comments,PostId)))
 );
 
 

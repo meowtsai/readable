@@ -25,7 +25,7 @@ class EditPost extends Component {
       body:values.inputPostBody,
     }
 
-    console.log('this.props.actions',this.props.actions)
+    //console.log('this.props.actions',this.props.actions)
     if (this.props.actions.editPost)
   	    this.props.actions.editPost(postValues)
 

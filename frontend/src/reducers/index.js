@@ -19,6 +19,7 @@ import {
   RECEIVE_POST_BY_ID,
   VOTE_POST_OK,
   DELETE_POST_OK,
+  EDIT_POST_OK,
 } from '../actions/post_action'
 
 
@@ -40,13 +41,15 @@ function category (state = {}, action){
 
 }
 
-function comment (state = {}, action){
-  const { comments,comment,newComment,deletedComment} = action
+function comment (state = {post_comments_count:[]}, action){
+  const { comments,comment,newComment,deletedComment,post_comments_count} = action
   switch (action.type){
     case RECEIVE_COMMENTS:
       return {
         ...state,
         comments,
+        post_comments_count:(state.post_comments_count?state.post_comments_count.filter(item => item.ParentPostId !==post_comments_count.ParentPostId).concat([post_comments_count]):post_comments_count),
+
       }
     case VOTE_COMMENT_OK:
       return {
@@ -77,7 +80,7 @@ function comment (state = {}, action){
 
 
 function post (state = {postsSortBy:'voteScore'}, action){
-  const { posts,postsSortBy,newPost,selectedPost,deletedPost} = action
+  const { posts,postsSortBy,newPost,selectedPost,deletedPost,edittedPost} = action
   switch (action.type){
     case RECEIVE_POSTS:
       return {
@@ -110,6 +113,12 @@ function post (state = {postsSortBy:'voteScore'}, action){
         ...state,
         posts:state.posts.filter(item => item.id !==deletedPost.id),
         deletedPost,
+      }
+    case EDIT_POST_OK:
+      return {
+        ...state,
+        posts:state.posts.filter(item => item.id !==edittedPost.id).concat([edittedPost]),
+        selectedPost:edittedPost,
       }
     default:
         return state
